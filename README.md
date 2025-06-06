@@ -22,7 +22,7 @@ Can be adapted for other appliances
 
 ## 🔧 Configuration
 
-#    Discord Webhook:
+Discord Webhook:
 The optional Discord webhook is set as environmental variable DISCORD.
 If DISCORD variable is "", no webhook is invoked.
 
@@ -32,7 +32,7 @@ Example laundry.sh file:
     python laundry.py
 
 
-#   Update these values in the Python script (laundry.py):
+Update these values in the Python script (laundry.py):
     Chromecast Devices:
 
 device_friendly_name = "Living Room speaker"
@@ -44,7 +44,7 @@ TONE = 2200  # Frequency to detect
 BANDWIDTH = 300
 SENSITIVITY = 0.1
 
-# audio "LG.WAV" is cast to Chromecast devices when an alarm occurs
+audio "LG.WAV" is cast to Chromecast devices when an alarm occurs
 
 ## 🛠️ Usage
 
@@ -78,7 +78,7 @@ Then enable the service:
 
 ## 🔍 Debugging
 
-Audio from LG Washer and Dryer available here: # code deisgned for LG Washer and Dryer: https://youtu.be/5Y7rj98trow
+Audio from LG Washer and Dryer available here: https://youtu.be/5Y7rj98trow
     View logs:
 
     tail -f /home/pi/Laundry-Alarm/laundry.log
@@ -104,5 +104,5 @@ Feel free to fork, improve, and make it work with other appliances!
 ## 🛡️ License
 
 This project is open source and available under the MIT License.
-🙏 Credits
+
 
