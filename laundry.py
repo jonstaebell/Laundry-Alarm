@@ -143,7 +143,7 @@ def main():
     last_alarm = datetime(2000, 1, 1)
 
     print(datetime.now(), "Alarm detector working. Press CTRL-C to quit.")
-    log_event("Start" + datetime.now().strftime("%I:%M%p on %B %d, %Y")) 
+    log_event("Start " + datetime.now().strftime("%I:%M%p on %B %d, %Y")) 
 
     try:
         while True:
