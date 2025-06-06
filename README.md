@@ -24,6 +24,7 @@ Can be adapted for other appliances
 
 #    Discord Webhook:
 The optional Discord webhook is set as environmental variable DISCORD.
+If DISCORD variable is "", no webhook is invoked.
 
 Example laundry.sh file:
 
@@ -42,6 +43,8 @@ device_friendly_name2 = "Library speaker"
 TONE = 2200  # Frequency to detect
 BANDWIDTH = 300
 SENSITIVITY = 0.1
+
+# audio "LG.WAV" is cast to Chromecast devices when an alarm occurs
 
 ## 🛠️ Usage
 
