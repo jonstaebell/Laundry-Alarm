@@ -48,8 +48,7 @@ whatever you want to alert you.
 
 ## 🛠️ Usage
 
-Run manually:
-    laundry.sh
+Run manually: '''laundry.sh'''
 
 Or install as a systemd service:
     [Unit]
