@@ -9,10 +9,10 @@ Can be adapted for other appliances.
 
 - Real-time audio monitoring using PyAudio
 - Frequency detection using FFT (Fast Fourier Transform)
-- Alerts via:
+- Optional alerts via:
   - Chromecast speaker playback
   - Discord webhook notifications
-- Optional support for multiple Chromecast devices
+- Support for multiple Chromecast devices
 - Sensitivity, alarm tone, and timing fully configurable
 
 ## 🚀 Requirements
@@ -49,7 +49,7 @@ whatever you want to alert you.
 ## 🛠️ Usage
 
 Run manually:
-    ./laundry.sh
+    laundry.sh
 
 Or install as a systemd service:
     [Unit]
@@ -98,7 +98,7 @@ I used Chatgpt to rewrite my code.
 
 ## Contact
 
-Project by Jon Staebell, jonstaebell@gmail.com
+Project by Jon Staebell, jonstaebell@gmail.com. 
 Feel free to fork, improve, and make it work with other appliances!
 
 ## 🛡️ License
