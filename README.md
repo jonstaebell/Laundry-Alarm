@@ -49,8 +49,9 @@ whatever you want to alert you.
 ## 🛠️ Usage
 
 Run manually: 
-    ```bash 
+```bash 
     ./laundry.sh
+```
 
 Or install as a systemd service:
     [Unit]
