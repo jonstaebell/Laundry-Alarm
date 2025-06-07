@@ -39,22 +39,21 @@ device_friendly_name = "Living Room speaker"
 device_friendly_name2 = "Library speaker"
 
     Alarm Frequency:
+    TONE = 2200  # Frequency to detect
+    BANDWIDTH = 300
+    SENSITIVITY = 0.1
 
-TONE = 2200  # Frequency to detect
-BANDWIDTH = 300
-SENSITIVITY = 0.1
 
-audio "LG.WAV" is cast to Chromecast devices when an alarm occurs
+
+Audio file "LG.WAV" is cast to Chromecast devices when an alarm occurs. Replace with 
+whatever you want to alert you.
 
 ## 🛠️ Usage
 
     Run manually:
-
-./laundry.sh
+    ./laundry.sh
 
 Or install as a systemd service:
-Example laundry_alarm.service:
-
     [Unit]
     Description=Laundry Alarm Monitor
     After=network.target
@@ -78,8 +77,9 @@ Then enable the service:
 
 ## 🔍 Debugging
 
-Audio from LG Washer and Dryer available here: https://youtu.be/5Y7rj98trow
-    View logs:
+For testing, Audio from LG Washer and Dryer available here: https://youtu.be/5Y7rj98trow
+
+    To view logs:
 
     tail -f /home/pi/Laundry-Alarm/laundry.log
 
@@ -87,13 +87,15 @@ Check systemd status:
 
     sudo systemctl status laundry_alarm.service
 
-    See full logs via journalctl:
+See full logs via journalctl:
 
     journalctl -u laundry_alarm.service
 
 ## Acknowledgements
 
-Code for alarm detection taken from https://github.com/benjaminchodroff/alarmBeepDetect/blob/master/alarmBeepDetect.py
+Code for alarm detection taken from https://github.com/benjaminchodroff/alarmBeepDetect/blob/master/alarmBeepDetect.py. See that description for
+an explanation of detection parameters for customization.
+
 Chatgpt used to rewrite my code
 
 ## Contact
