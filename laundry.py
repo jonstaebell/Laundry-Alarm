@@ -42,13 +42,13 @@ CONFIG["discord_webhook"]= os.getenv('DISCORD', '')
 # -----------------------------
 def send_discord_message(message: str): 
     program_name, _ = os.path.splitext(os.path.basename(sys.argv[0])) # remove path and extension from current program name
-    print (program_name + ": " + message)
+    print (program_name + ": " + message,flush=True)
     if CONFIG["discord_webhook"] != '':
         webhook = DiscordWebhook(url=CONFIG["discord_webhook"], content=program_name + ": " + message)
         try:
             webhook.execute()
         except Exception as e:
-            print(f"Discord webhook error: {e}")
+            print(f"Discord webhook error: {e}",flush=True)
 
 # -----------------------------
 # Logging Helper
@@ -57,7 +57,7 @@ def log_event(event, param=''):
     now = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     row = [now, event, param]
     if CONFIG["debug"]:
-        print(row)
+        print(row,flush=True)
  
 # -----------------------------
 # Chromecast Setup
@@ -72,7 +72,7 @@ def find_chromecasts(device_names):
             casts[name] = cast
         else:
             msg = f"{name} not found, skipping..."
-            print(msg)
+            print(msg,flush=True)
             send_discord_message(msg)
     return casts
 
@@ -91,7 +91,7 @@ def trigger_alarm(casts):
             time.sleep(10)
             cast.set_volume(old_volume)
         except Exception as e:
-            print(f"Error with {name}: {e}")
+            print(f"Error with {name}: {e}",flush=True)
 
 # -----------------------------
 # Audio Input Setup
@@ -142,7 +142,7 @@ def main():
     last_blip = datetime.now()
     last_alarm = datetime(2000, 1, 1)
 
-    print(datetime.now(), "Alarm detector working. Press CTRL-C to quit.")
+    print(datetime.now(), "Alarm detector working. Press CTRL-C to quit.",flush=True)
     log_event("Start " + datetime.now().strftime("%I:%M%p on %B %d, %Y")) 
 
     try:
@@ -157,7 +157,7 @@ def main():
                 if (now - last_blip).seconds > CONFIG["max_blip_interval"]:
                     blip_count = 0
                     if CONFIG["debug"]:
-                        print("Blip count reset")
+                        print("Blip count reset",flush=True)
 
                 blip_count += 1
                 last_blip = now
@@ -169,7 +169,7 @@ def main():
                     blip_count = 0
             time.sleep(0.01)
     except KeyboardInterrupt:
-        print("Interrupted. Exiting.")
+        print("Interrupted. Exiting.",flush=True)
         send_discord_message("Laundry alarm stopped " + datetime.now().strftime("%I:%M%p on %B %d, %Y")) 
 
 # -----------------------------
