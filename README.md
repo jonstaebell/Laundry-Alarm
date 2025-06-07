@@ -1,8 +1,9 @@
 # Laundry-Alarm
 
 Detects when your washer or dryer finishes based on audible beeps, then alerts you via Chromecast speakers and Discord.
-Deisgned for LG Washer and Dryer: https://youtu.be/5Y7rj98trow
-Can be adapted for other appliances
+
+Designed for LG Washer and Dryer: https://youtu.be/5Y7rj98trow.
+Can be adapted for other appliances.
 
 ## 📦 Features
 
@@ -34,23 +35,20 @@ Example laundry.sh file:
 
 Update these values in the Python script (laundry.py):
     Chromecast Devices:
-
-device_friendly_name = "Living Room speaker"
-device_friendly_name2 = "Library speaker"
+        device_friendly_name = "Living Room speaker"
+        device_friendly_name2 = "Library speaker"
 
     Alarm Frequency:
-    TONE = 2200  # Frequency to detect
-    BANDWIDTH = 300
-    SENSITIVITY = 0.1
-
-
+        TONE = 2200  # Frequency to detect
+        BANDWIDTH = 300
+        SENSITIVITY = 0.1
 
 Audio file "LG.WAV" is cast to Chromecast devices when an alarm occurs. Replace with 
 whatever you want to alert you.
 
 ## 🛠️ Usage
 
-    Run manually:
+Run manually:
     ./laundry.sh
 
 Or install as a systemd service:
@@ -79,7 +77,7 @@ Then enable the service:
 
 For testing, Audio from LG Washer and Dryer available here: https://youtu.be/5Y7rj98trow
 
-    To view logs:
+To view logs:
 
     tail -f /home/pi/Laundry-Alarm/laundry.log
 
@@ -96,7 +94,7 @@ See full logs via journalctl:
 Code for alarm detection taken from https://github.com/benjaminchodroff/alarmBeepDetect/blob/master/alarmBeepDetect.py. See that description for
 an explanation of detection parameters for customization.
 
-Chatgpt used to rewrite my code
+I used Chatgpt to rewrite my code.
 
 ## Contact
 
