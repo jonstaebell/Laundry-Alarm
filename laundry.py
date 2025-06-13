@@ -80,9 +80,14 @@ def find_chromecasts(device_names):
 # -----------------------------
 # Alarm Trigger
 # -----------------------------
-def trigger_alarm(casts):
+def trigger_alarm(device_names):
+    casts = find_chromecasts(device_names)
     send_discord_message("Alarm! " + datetime.now().strftime("%I:%M%p on %B %d, %Y"))
-    for name, cast in casts.items():
+    for name in device_names:
+        cast = casts.get(name)
+        if not cast:
+            continue
+
         mc = cast.media_controller
         try:
             old_volume = cast.status.volume_level
@@ -91,7 +96,7 @@ def trigger_alarm(casts):
             time.sleep(10)
             cast.set_volume(old_volume)
         except Exception as e:
-            print(f"Error with {name}: {e}",flush=True)
+            print(f"Error with {name}: {e}", flush=True)
 
 # -----------------------------
 # Audio Input Setup
@@ -136,7 +141,6 @@ def detect_beep(data):
 def main():
     send_discord_message("Laundry alarm started " + datetime.now().strftime("%I:%M%p on %B %d, %Y")) 
     stream = setup_audio_stream()
-    casts = find_chromecasts(CONFIG["device_names"])
     
     blip_count = 0
     last_blip = datetime.now()
@@ -164,7 +168,7 @@ def main():
                 log_event("Blip", blip_count)
 
                 if blip_count >= CONFIG["alarm_length"] and (now - last_alarm).seconds > CONFIG["alarm_delay"]:
-                    trigger_alarm(casts)
+                    trigger_alarm(CONFIG["device_names"])
                     last_alarm = now
                     blip_count = 0
             time.sleep(0.01)
