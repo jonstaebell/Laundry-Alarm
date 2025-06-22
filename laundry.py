@@ -28,7 +28,7 @@ CONFIG = {
     "sample_rate": 44100,
     "num_samples": 2048,
     "device_names": ["Living Room speaker", "Library speaker"],
-    "audio_url": "http://127.0.0.1:8000/home/pi/Laundry-Alarm/LG.wav",
+    "audio_url": "http://192.168.68.150:8000/LG.wav",
     "debug": True,
     "frequency_output": False,
     "min_log_freq": 800,
